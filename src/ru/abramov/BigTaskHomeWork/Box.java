@@ -68,6 +68,9 @@ public class Box<T extends Fruit> {
             Apple a2 = new Apple();
             Apple a3 = new Apple();
             Apple a4 = new Apple();
+            Apple a5 = new Apple();
+            Apple a6 = new Apple();
+
             Orange o1 = new Orange();
             Orange o2 = new Orange();
             Orange o3 = new Orange();
@@ -78,11 +81,12 @@ public class Box<T extends Fruit> {
             Box<Orange> orangeBox = new Box<>();
             orangeBox.put(o1, o2, o3, o4);
             Box<Apple> appleBox2 = new Box<>();
-            appleBox.put(a1, a2, a3, a4);
+            appleBox2.put(a5, a6);
 
             System.out.println("Вес коробки с яблоками=" + appleBox.getWeight());
+            System.out.println("Вес коробки с яблоками=" + appleBox2.getWeight());
             System.out.println("Вес коробки с апельсинами=" + orangeBox.getWeight());
-            System.out.println("Попытка положить яяблоки к апельсинам: " + appleBox.compare(orangeBox));
+            System.out.println("Попытка положить яблоки к апельсинам: " + appleBox.compare(orangeBox));
             System.out.println("Положим все яблоки в один ящик");
             appleBox.putAll(appleBox2);
             System.out.println("Вес всех яблок=" + appleBox.getWeight());
