@@ -22,40 +22,53 @@ public class Matrix<T extends Object> {
 
             String text = a + b;
             String[] arrText = text.split(" ");
-            Matrix<String> stringMatrix = new Matrix<>(arrText);
-            stringMatrix.change();
-            stringMatrix.printMatrix();
+            printMatrix(arrText);
+            System.out.println("Меняем 2 элемента");
+            changeTwoElements(arrText, 0, 1);
+            printMatrix(arrText);
+            changeTwoElements(arrText, 0, 1);
 
-            Matrix<String> stringMatrix1 = new Matrix<>(a.split(" "));
-            stringMatrix1.ConvertsToArrayList();
+            System.out.println("Меняем все элементы");
+            change(arrText);
+            printMatrix(arrText);
+            change(arrText);
 
+            System.out.println("Переносим все в лист");
+            List<String> list = ConvertsToArrayList(arrText);
+            System.out.println(list);
 
         }
     }
 
-private void ConvertsToArrayList(){
-    List<T> ar = new ArrayList<>();
-    ar.addAll(Arrays.asList(array));
-    System.out.println(ar);
-}
+    private static <T> List<T> ConvertsToArrayList(T[] array) {
+        List<T> ar = new ArrayList<>(Arrays.asList(array));
+        //ar.addAll(Arrays.asList(array));
+        return ar;
+    }
 
-    private void printMatrix() {
-        for (int i = 0; i < array.length; i++) {
+    private static <T> void printMatrix(T[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             if (i == 0) System.out.print("[");
-            System.out.print(array[i] + ", ");
+            System.out.print(arr[i] + ", ");
         }
         System.out.println("]");
     }
 
-    public void change() {
+    public static <T> void change(T[] arr) {
         T a;
-        for (int i = 1; i < array.length-1; i+=2) {
+        for (int i = 1; i < arr.length - 1; i += 2) {
             if (i % 2 == 1) {
-                a = array[i - 1];
-                array[i - 1] = array[i];
-                array[i] = a;
+                a = arr[i - 1];
+                arr[i - 1] = arr[i];
+                arr[i] = a;
             }
         }
+    }
+
+    public static <T> void changeTwoElements(T[] arr, int a, int b) {
+        T c = arr[a];
+        arr[a] = arr[b];
+        arr[b] = c;
     }
 
 

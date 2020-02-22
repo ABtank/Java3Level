@@ -1,19 +1,18 @@
 package ru.abramov.BigTaskHomeWork;
 
 public class Orange extends Fruit {
-    private static int COUNT;
-    private static float weight =1.5f;
-
-    public static float getWeight() {
-        return weight;
-    }
+    private static int count;
+    private String name;
 
     public Orange() {
-        COUNT++;
-        System.out.println("Orange №" + COUNT);
+        setWeight(1.5f);
+        count++;
+        name="Orange №" + count;
     }
 
-    public static int getCOUNT() {
-        return COUNT;
+    @Override
+    public String toString() {
+        return super.toString()+" = "+name;
     }
+
 }
